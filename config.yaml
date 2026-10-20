@@ -1,0 +1,132 @@
+store:
+  width: 36.0
+  length: 26.0
+  height: 5.5
+  mesh_path: assets/grocery_store.obj
+  entrance:
+  - 2.0
+  - 2.5
+  open_checkouts_count: 2
+  checkouts:
+  - [28.0, 4.0]
+  - [28.0, 6.5]
+  - [28.0, 9.0]
+  - [28.0, 11.5]
+  - [28.0, 14.0]
+  - [28.0, 16.5]
+  - [28.0, 19.0]
+  - [28.0, 21.5]
+  aisles:
+  # Front Electronics & Bulk Pallet Islands
+  - [5.5, 6.0, 8.0, 11.0]
+  - [5.5, 15.0, 8.0, 20.0]
+  # Lower Grocery Gondolas (South of Central Action Alley)
+  - [11.5, 3.0, 13.0, 11.0]
+  - [16.0, 3.0, 17.5, 11.0]
+  - [20.5, 3.0, 22.0, 11.0]
+  # Upper Bulk Racks (North of Central Action Alley)
+  - [11.5, 15.0, 13.0, 23.0]
+  - [16.0, 15.0, 17.5, 23.0]
+  - [20.5, 15.0, 22.0, 23.0]
+  # North & West Perimeter Cold Storage / Bakery Displays
+  - [2.0, 23.5, 9.5, 24.8]
+  - [1.2, 10.0, 2.5, 18.0]
+
+products:
+  Electronics: [4.5, 8.5]
+  Apparel: [4.5, 17.5]
+  Bakery: [6.0, 22.5]
+  Rotisserie_Chicken: [3.2, 14.0]
+  Produce: [10.2, 7.0]
+  Dairy: [10.2, 19.0]
+  Meat: [14.5, 19.0]
+  Pasta: [14.5, 7.0]
+  Sauce: [14.5, 9.5]
+  Chips: [19.0, 7.0]
+  Soda: [19.0, 19.0]
+  Pharmacy: [23.2, 19.0]
+  Paper_Towels: [23.2, 7.0]
+
+  base_probabilities:
+    Rotisserie_Chicken: 0.65
+    Paper_Towels: 0.55
+    Produce: 0.50
+    Dairy: 0.45
+    Bakery: 0.35
+    Meat: 0.40
+    Pasta: 0.25
+    Sauce: 0.20
+    Chips: 0.40
+    Soda: 0.40
+    Electronics: 0.20
+    Apparel: 0.20
+    Pharmacy: 0.15
+
+  correlations:
+    Rotisserie_Chicken:
+      Bakery: 0.60
+      Soda: 0.50
+    Pasta:
+      Sauce: 0.85
+      Meat: 0.45
+    Chips:
+      Soda: 0.80
+    Produce:
+      Dairy: 0.55
+      Meat: 0.50
+    Paper_Towels:
+      Dairy: 0.45
+
+simulation:
+  fps: 15
+  duration_sec: 600
+  num_customers: 22
+  respawn_delay_range: [1.0, 4.0]
+  speed_mean: 1.30
+  speed_std: 0.25
+  dwell_mode: "lognormal"
+  dwell_mean: 3.0
+  dwell_max: 16.0
+  social_repulsion_weight: 1.8
+
+cameras:
+- id: CAM_01_ENTRANCE
+  location: [1.0, 1.0, 4.8]
+  look_at: [8.0, 8.0, 1.0]
+  focal_length_mm: 2.8
+  resolution: [640, 360]
+- id: CAM_02_PALLET_DROP
+  location: [4.5, 25.0, 4.8]
+  look_at: [6.5, 11.0, 1.0]
+  focal_length_mm: 3.0
+  resolution: [640, 360]
+- id: CAM_03_ACTION_ALLEY_WEST
+  location: [3.0, 13.0, 4.8]
+  look_at: [18.0, 13.0, 1.2]
+  focal_length_mm: 3.2
+  resolution: [640, 360]
+- id: CAM_04_ACTION_ALLEY_EAST
+  location: [25.5, 13.0, 4.8]
+  look_at: [11.0, 13.0, 1.2]
+  focal_length_mm: 3.2
+  resolution: [640, 360]
+- id: CAM_05_SOUTH_AISLES
+  location: [16.0, 1.0, 4.8]
+  look_at: [16.0, 12.0, 1.0]
+  focal_length_mm: 2.8
+  resolution: [640, 360]
+- id: CAM_06_NORTH_RACKS
+  location: [16.0, 25.0, 4.8]
+  look_at: [16.0, 14.0, 1.0]
+  focal_length_mm: 2.8
+  resolution: [640, 360]
+- id: CAM_07_CHECKOUT_SOUTH
+  location: [35.0, 2.0, 4.8]
+  look_at: [26.5, 10.5, 1.0]
+  focal_length_mm: 2.8
+  resolution: [640, 360]
+- id: CAM_08_CHECKOUT_NORTH
+  location: [35.0, 24.0, 4.8]
+  look_at: [26.5, 15.5, 1.0]
+  focal_length_mm: 2.8
+  resolution: [640, 360]
